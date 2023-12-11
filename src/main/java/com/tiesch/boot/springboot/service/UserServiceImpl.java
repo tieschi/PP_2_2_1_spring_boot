@@ -20,10 +20,12 @@ public class UserServiceImpl implements UserService{
         return userRepository.findAll();
     }
 
+    @Transactional
     @Override
     public void addUser(User user) {
         userRepository.save(user);
     }
+
 
     @Override
     public User getUser(int id) {
@@ -35,6 +37,7 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
+    @Transactional()
     @Override
     public void deleteUser(int id) {
         userRepository.deleteById(id);
